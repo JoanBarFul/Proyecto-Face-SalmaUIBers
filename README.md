@@ -7,4 +7,4 @@
 
 User: proyectofacedam@gmail.com
 
-Contraseña gmail: (En base 64) TmVzdG9yU29yaWFubzIz
+Contraseña gmail:  TmVzdG9yU29yaWFubzIz
