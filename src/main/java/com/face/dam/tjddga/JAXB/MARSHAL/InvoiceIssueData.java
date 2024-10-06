@@ -54,6 +54,8 @@ public class InvoiceIssueData {
         this.languageName = languageName;
     }
     
+    // Descripción de la factura
+    
     @XmlElement(name = "InvoiceDescription")
     public String getInvoiceDescription() {
         return this.invoiceDescription;
