@@ -17,3 +17,5 @@ Tutoriales
 - https://timjansen.github.io/jarfiller/guide/jaxb/requiredelements.xhtml //
 ###XSD Oficial de face
 - https://www.facturae.gob.es/formato/Versiones/Facturaev3_2_2.xml
+
+- https://meet.google.com/ism-pqyy-dqp
