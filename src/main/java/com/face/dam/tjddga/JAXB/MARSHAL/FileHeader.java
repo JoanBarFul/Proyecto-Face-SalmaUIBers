@@ -2,6 +2,8 @@ package com.face.dam.tjddga.JAXB.MARSHAL;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 @XmlType(propOrder = {"schemaVersion", "modality", "invoiceIssuerType", "batch"})
 public class FileHeader {
@@ -45,4 +47,15 @@ public class FileHeader {
     public void setBatch(Batch batch) {
         this.batch = batch;
     }
+    
+    public void rellenarFileHeader(HashMap<String, ArrayList<Object>> map) {
+        ArrayList<Object> valores = map.get("FileHeader");
+        this.schemaVersion = (String) valores.get(0);
+        this.modality = (String) valores.get(1);
+        this.invoiceIssuerType = (String) valores.get(2);
+        //this.batch = (Batch) valores.get(3);
+        
+    }
+    
+    
 }
