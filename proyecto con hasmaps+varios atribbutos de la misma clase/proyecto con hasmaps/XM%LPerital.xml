@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Cliente>
+    <NombreCliente>Toni</NombreCliente>
+    <ApellidoCliente>Arnaiz</ApellidoCliente>
+    <IDPerital>123</IDPerital>
+    <Direcciones>
+        <Direccion>
+            <calle>calle</calle>
+            <ciudad>ciudad</ciudad>
+            <codigoPostal>1</codigoPostal>
+        </Direccion>
+        <Direccion>
+            <calle>calle</calle>
+            <ciudad>ciudad</ciudad>
+            <codigoPostal>2</codigoPostal>
+        </Direccion>
+    </Direcciones>
+    <test1>
+        <info>test1</info>
+    </test1>
+    <test2>
+        <info>test2</info>
+    </test2>
+</Cliente>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Cliente>
+    <NombreCliente>Bartomeu</NombreCliente>
+    <ApellidoCliente>Segura i Duran</ApellidoCliente>
+    <IDPerital>666</IDPerital>
+    <Direcciones>
+        <Direccion>
+            <calle>Calle Falsa 123</calle>
+            <ciudad>Son Banya</ciudad>
+            <codigoPostal>3968</codigoPostal>
+        </Direccion>
+        <Direccion>
+            <calle>Calle UWU</calle>
+            <ciudad>Palma</ciudad>
+            <codigoPostal>12345</codigoPostal>
+        </Direccion>
+    </Direcciones>
+</Cliente>
