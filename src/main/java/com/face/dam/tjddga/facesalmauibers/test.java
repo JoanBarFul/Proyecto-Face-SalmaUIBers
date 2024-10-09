@@ -23,7 +23,7 @@ public class test {
             
             HashMap<String,ArrayList<Object>> facturaeMAP = new HashMap<>();
             
-            // FH
+            // FileHeader
             String schemaVersion = "3.2.2";
             String modality = "I";
             String invoiceIssuerType = "EM";
@@ -66,8 +66,7 @@ public class test {
             FileHeader fileHeader = new FileHeader();
             Batch batch = new Batch();
             
-            batch.rellenarBatch(facturaeMAP);
-            datosFileHeader.add(batch);
+
             fileHeader.rellenarFileHeader(facturaeMAP);
 
             facturae.setFileHeader(fileHeader);
@@ -151,7 +150,7 @@ public class test {
             String PostCode = "07600";
             String Town = "Palma";
             String Province = "Baleares";
-            String CountryCode = "Esp";
+            String CountryCode = "ESP";
             
             
             ArrayList<Object> datosAdressInSpain = new ArrayList<>();
