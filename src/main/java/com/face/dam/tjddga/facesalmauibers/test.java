@@ -66,9 +66,10 @@ public class test {
             FileHeader fileHeader = new FileHeader();
             Batch batch = new Batch();
             
-            fileHeader.rellenarFileHeader(facturaeMAP);
             batch.rellenarBatch(facturaeMAP);
-            fileHeader.setBatch(batch);
+            datosFileHeader.add(batch);
+            fileHeader.rellenarFileHeader(facturaeMAP);
+
             facturae.setFileHeader(fileHeader);
             
             
