@@ -53,7 +53,9 @@ public class FileHeader {
         this.schemaVersion = (String) valores.get(0);
         this.modality = (String) valores.get(1);
         this.invoiceIssuerType = (String) valores.get(2);
-        this.batch = (Batch) valores.get(3);
+        Batch Batch = new Batch();
+        Batch.rellenarBatch(map);
+        this.setBatch(Batch);
         
     }
     
