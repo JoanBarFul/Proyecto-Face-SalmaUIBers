@@ -67,7 +67,7 @@ public class AddressInSpain {
     }
     
     public void rellenarAdressInSpain(HashMap<String, ArrayList<Object>> map) {
-        ArrayList<Object> valores = map.get("AdressInSpain");
+        ArrayList<Object> valores = map.get("AddressInSpain");
         this.address = (String) valores.get(0);
         this.postCode = (String) valores.get(1);
         this.town = (String) valores.get(2);

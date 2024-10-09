@@ -26,7 +26,24 @@
                 <ResidenceTypeCode>R</ResidenceTypeCode>
                 <TaxIdentificationNumber>Q0000000J</TaxIdentificationNumber>
             </TaxIdentification>
-            <LegalEntity/>
+            <LegalEntity>
+                <CorporateName>Nestor Soriano</CorporateName>
+                <RegistrationData>
+                    <Book>0</Book>
+                    <RegisterOfCompaniesLocation>Reg Paquillo Paco</RegisterOfCompaniesLocation>
+                    <Sheet>999999</Sheet>
+                    <Folio>99</Folio>
+                    <Section>9</Section>
+                    <Volume>999</Volume>
+                </RegistrationData>
+                <AddressInSpain>
+                    <Address>Calle falsa 123</Address>
+                    <PostCode>07600</PostCode>
+                    <Town>Palma</Town>
+                    <Province>Baleares</Province>
+                    <CountryCode>Esp</CountryCode>
+                </AddressInSpain>
+            </LegalEntity>
         </SellerParty>
         <BuyerParty>
             <TaxIdentification>

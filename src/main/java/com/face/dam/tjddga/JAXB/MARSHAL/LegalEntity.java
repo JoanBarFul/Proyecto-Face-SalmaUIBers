@@ -59,7 +59,7 @@ public class LegalEntity {
         
         AddressInSpain adressInSpain = new AddressInSpain();
         adressInSpain.rellenarAdressInSpain(map);
-        this.setAddressInSpain(addressInSpain);
+        this.setAddressInSpain(adressInSpain);
         
         
         
