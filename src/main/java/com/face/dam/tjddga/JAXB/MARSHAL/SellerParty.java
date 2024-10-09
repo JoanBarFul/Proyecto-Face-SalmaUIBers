@@ -47,6 +47,7 @@ public class SellerParty {
         // Objeto hijo legalEntity
         
         LegalEntity legEntity = new LegalEntity();
+        legEntity.rellenarLegalEntity(map);
         this.legalEntity = legEntity;
         
         

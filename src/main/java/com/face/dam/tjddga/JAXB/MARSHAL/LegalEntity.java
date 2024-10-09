@@ -52,7 +52,7 @@ public class LegalEntity {
         
         // Objeto hijo RegistrationData
         RegistrationData regData = new RegistrationData();
-        registrationData.rellenarRegistrationData(map);
+        regData.rellenarRegistrationData(map);
         this.setRegistrationData(regData);
         
         // Objeot hijo adressInSpain
