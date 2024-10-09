@@ -5,6 +5,8 @@
 package com.face.dam.tjddga.JAXB.MARSHAL;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.HashMap;
 /**
  *
  * @author alexc
@@ -43,4 +45,14 @@ public class TaxIdentification {
     public void setTaxIdentificationNumber(String taxIdentificationNumber) {
         this.taxIdentificationNumber = taxIdentificationNumber;
     }
+    
+    public void rellenarTaxIdentification(HashMap<String, ArrayList<Object>> map) {
+        ArrayList<Object> valores = map.get("TaxIdentification");
+        this.personTypeCode = (String) valores.get(0);
+        this.residenceTypeCode = (String) valores.get(1);
+        this.taxIdentificationNumber = (String) valores.get(2);
+
+        
+    }
+    
 }

@@ -5,6 +5,8 @@
 package com.face.dam.tjddga.JAXB.MARSHAL;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.HashMap;
 /**
  *
  * @author alexc
@@ -33,4 +35,33 @@ public class SellerParty {
     public void setLegalEntity(LegalEntity legalEntity) {
         this.legalEntity = legalEntity;
     }
+    
+    public void rellenarSellerParty(HashMap<String, ArrayList<Object>> map) {
+        ArrayList<Object> valores = map.get("SellerParty");
+        
+        // Objeto hijo TaxIdentification
+        TaxIdentification taxID = new TaxIdentification();
+        taxID.rellenarTaxIdentification(map);
+        this.taxIdentification = taxID;
+        
+        // Objeto hijo legalEntity
+        
+        LegalEntity legEntity = new LegalEntity();
+        this.legalEntity = legEntity;
+        
+        
+        
+    }
+    
+    
+    
+    
+    /*
+    
+        private TaxIdentification taxIdentification;
+    private LegalEntity legalEntity;
+    
+    */
+    
+    
 }

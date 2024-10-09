@@ -5,6 +5,8 @@
 package com.face.dam.tjddga.JAXB.MARSHAL;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.HashMap;
 /**
  *
  * @author alexc
@@ -73,4 +75,29 @@ public class RegistrationData {
     public void setVolume(int volume) {
         this.volume = volume;
     }
+    
+    public void rellenarRegistrationData(HashMap<String, ArrayList<Object>> map) {
+        ArrayList<Object> valores = map.get("RegistrationData");
+        this.book = (int) valores.get(0);
+        this.registerOfCompaniesLocation = (String) valores.get(1);
+        this.sheet = (int) valores.get(2);
+        this.folio = (int) valores.get(3);
+        this.section = (int) valores.get(4);
+        this.volume = (int) valores.get(5);
+        
+        
+        
+    }
+    
+    /*
+    
+    private int book;
+    private String registerOfCompaniesLocation;
+    private int sheet;
+    private int folio;
+    private int section;
+    private int volume;
+    */
+    
+    
 }
