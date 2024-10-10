@@ -25,7 +25,7 @@ public class FormularioCliente extends JFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.insets = new Insets(10, 5, 10, 5); // Reducir márgenes laterales a la mitad
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         // Etiqueta para Cliente
@@ -85,36 +85,64 @@ public class FormularioCliente extends JFrame {
     private void ventanaAgregarCliente() {
         // Crear una nueva ventana
         JFrame ventana = new JFrame("Agregar Cliente");
-        ventana.setSize(400, 400);
+        ventana.setSize(400, 700);
         ventana.setLocationRelativeTo(null);
         ventana.setLayout(new BorderLayout());
 
         // Panel principal con border y padding
         JPanel panelAgregar = new JPanel();
-        panelAgregar.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-        panelAgregar.setLayout(new GridLayout(8, 2, 10, 10));
+        panelAgregar.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        panelAgregar.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5); 
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
         // Crear campos para ingresar nombre, apellido y otros datos
         JLabel labelNombreCliente = new JLabel("Nombre:");
         JTextField nombreCliente = new JTextField();
+        nombreCliente.setPreferredSize(new Dimension(250, 30)); 
 
         JLabel labelApellidosCliente = new JLabel("Apellidos:");
         JTextField apellidosCliente = new JTextField();
+        apellidosCliente.setPreferredSize(new Dimension(250, 30)); 
 
-        JLabel labelClienteID = new JLabel("ClienteID:");
-        JTextField ClienteID = new JTextField();
+        JLabel labelClienteID = new JLabel("Cliente ID:");
+        JTextField clienteID = new JTextField();
+        clienteID.setPreferredSize(new Dimension(250, 30)); 
 
-        JLabel labelDirecciones = new JLabel("Dirección:");
-        JTextField Direcciones = new JTextField();
+        JLabel labelDireccion1 = new JLabel("Dirección:");
+        JLabel labelCalle1 = new JLabel("Calle:");
+        JTextField calle1 = new JTextField();
+        calle1.setPreferredSize(new Dimension(250, 30)); 
+        
+        JLabel labelCiudad1 = new JLabel("Ciudad:");
+        JTextField ciudad1 = new JTextField();
+        ciudad1.setPreferredSize(new Dimension(250, 30)); 
+        
+        JLabel labelCodigoPostal1 = new JLabel("Código Postal:");
+        JTextField codigoPostal1 = new JTextField();
+        codigoPostal1.setPreferredSize(new Dimension(250, 30)); 
 
-        JLabel labelDirecciones2 = new JLabel("Dirección (2):");
-        JTextField Direcciones2 = new JTextField();
+        JLabel labelDireccion2 = new JLabel("Dirección 2:");
+        JLabel labelCalle2 = new JLabel("Calle 2:");
+        JTextField calle2 = new JTextField();
+        calle2.setPreferredSize(new Dimension(250, 30)); 
+        
+        JLabel labelCiudad2 = new JLabel("Ciudad 2:");
+        JTextField ciudad2 = new JTextField();
+        ciudad2.setPreferredSize(new Dimension(250, 30)); 
+        
+        JLabel labelCodigoPostal2 = new JLabel("Código Postal 2:");
+        JTextField codigoPostal2 = new JTextField();
+        codigoPostal2.setPreferredSize(new Dimension(250, 30)); 
 
         JLabel labelVarios1 = new JLabel("Dato adicional 1:");
-        JTextField Varios1 = new JTextField();
+        JTextField varios1 = new JTextField();
+        varios1.setPreferredSize(new Dimension(250, 30)); 
 
         JLabel labelVarios2 = new JLabel("Dato adicional 2:");
-        JTextField Varios2 = new JTextField();
+        JTextField varios2 = new JTextField();
+        varios2.setPreferredSize(new Dimension(250, 30)); 
 
         // Botón para confirmar y agregar cliente
         JButton botonConfirmar = new JButton("Agregar");
@@ -139,34 +167,94 @@ public class FormularioCliente extends JFrame {
         });
 
         // Añadir los componentes a la ventana de agregar cliente
-        panelAgregar.add(labelNombreCliente);
-        panelAgregar.add(nombreCliente);
-        panelAgregar.add(labelApellidosCliente);
-        panelAgregar.add(apellidosCliente);
-        panelAgregar.add(labelClienteID);
-        panelAgregar.add(ClienteID);
-        panelAgregar.add(labelDirecciones);
-        panelAgregar.add(Direcciones);
-        panelAgregar.add(labelDirecciones2);
-        panelAgregar.add(Direcciones2);
-        panelAgregar.add(labelVarios1);
-        panelAgregar.add(Varios1);
-        panelAgregar.add(labelVarios2);
-        panelAgregar.add(Varios2);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panelAgregar.add(labelNombreCliente, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(nombreCliente, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        panelAgregar.add(labelApellidosCliente, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(apellidosCliente, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        panelAgregar.add(labelClienteID, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(clienteID, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        panelAgregar.add(labelDireccion1, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(new JLabel(), gbc); // Espacio para la siguiente línea
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        panelAgregar.add(labelCalle1, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(calle1, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        panelAgregar.add(labelCiudad1, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(ciudad1, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 6;
+        panelAgregar.add(labelCodigoPostal1, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(codigoPostal1, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 7;
+        panelAgregar.add(labelDireccion2, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(new JLabel(), gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 8;
+        panelAgregar.add(labelCalle2, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(calle2, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 9;
+        panelAgregar.add(labelCiudad2, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(ciudad2, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 10;
+        panelAgregar.add(labelCodigoPostal2, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(codigoPostal2, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 11;
+        panelAgregar.add(labelVarios1, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(varios1, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 12;
+        panelAgregar.add(labelVarios2, gbc);
+        gbc.gridx = 1;
+        panelAgregar.add(varios2, gbc);
 
         // Panel para el botón de confirmación
         JPanel panelBoton = new JPanel();
         panelBoton.add(botonConfirmar);
-
-        // Añadir el panel con los campos y el panel con el botón a la ventana
         ventana.add(panelAgregar, BorderLayout.CENTER);
         ventana.add(panelBoton, BorderLayout.SOUTH);
 
-        // Hacer visible la ventana
         ventana.setVisible(true);
     }
 
-    // Método para actualizar el JComboBox cuando se añade un nuevo cliente
+    // Método para actualizar el JComboBox con los clientes añadidos
     private void actualizarComboBoxClientes() {
         comboBoxClientes.removeAllItems();
         for (String cliente : listaClientes) {
@@ -174,10 +262,11 @@ public class FormularioCliente extends JFrame {
         }
     }
 
-    // ----------------------------- DIEGO -------------------------------------
-
+    // Método principal para ejecutar la aplicación
     public static void main(String[] args) {
-        FormularioCliente formulario = new FormularioCliente();
-        formulario.setVisible(true);
+        SwingUtilities.invokeLater(() -> {
+            FormularioCliente formulario = new FormularioCliente();
+            formulario.setVisible(true);
+        });
     }
 }
