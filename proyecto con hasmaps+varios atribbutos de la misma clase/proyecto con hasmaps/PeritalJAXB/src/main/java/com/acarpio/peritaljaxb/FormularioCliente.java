@@ -174,6 +174,8 @@ public class FormularioCliente extends JFrame {
         }
     }
 
+    // ----------------------------- DIEGO -------------------------------------
+
     public static void main(String[] args) {
         FormularioCliente formulario = new FormularioCliente();
         formulario.setVisible(true);
