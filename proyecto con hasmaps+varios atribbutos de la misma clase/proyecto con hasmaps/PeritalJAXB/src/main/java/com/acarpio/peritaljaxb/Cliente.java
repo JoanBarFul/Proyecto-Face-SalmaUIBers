@@ -76,6 +76,7 @@ public class Cliente {
         return clienteID;
     }
 
+    
     public void setClienteID(int clienteID) {
         this.clienteID = clienteID;
     }
