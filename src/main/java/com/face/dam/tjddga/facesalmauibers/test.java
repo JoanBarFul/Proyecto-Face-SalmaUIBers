@@ -1,5 +1,34 @@
 package com.face.dam.tjddga.facesalmauibers;
 
+import MARSHAL.Tax;
+import MARSHAL.AddressInSpain;
+import MARSHAL.TaxesOutputs;
+import MARSHAL.SellerParty;
+import MARSHAL.Batch;
+import MARSHAL.InvoiceLine;
+import MARSHAL.PaymentDetails;
+import MARSHAL.AdministrativeCentres;
+import MARSHAL.Facturae;
+import MARSHAL.Invoice;
+import MARSHAL.Parties;
+import MARSHAL.LegalEntity;
+import MARSHAL.Invoices;
+import MARSHAL.TaxIdentification;
+import MARSHAL.AdministrativeCentre;
+import MARSHAL.AdditionalData;
+import MARSHAL.TaxAmount;
+import MARSHAL.InvoiceIssueData;
+import MARSHAL.TotalAmount;
+import MARSHAL.BuyerParty;
+import MARSHAL.FileHeader;
+import MARSHAL.TaxableBase;
+import MARSHAL.InvoiceTotals;
+import MARSHAL.Installment;
+import MARSHAL.LineItemPeriod;
+import MARSHAL.InvoiceHeader;
+import MARSHAL.AccountToBeCredited;
+import MARSHAL.Items;
+import MARSHAL.RegistrationData;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
@@ -7,7 +36,6 @@ import jakarta.xml.bind.Marshaller;
 import java.io.File;
 import java.util.ArrayList;
 
-import com.face.dam.tjddga.JAXB.MARSHAL.*;
 
 public class test {
 
@@ -47,35 +75,11 @@ public class test {
             Parties parties = new Parties();
 
             // SellerParty
-            SellerParty sellerParty = new SellerParty();
-            TaxIdentification sellerTaxId = new TaxIdentification();
-            sellerTaxId.setPersonTypeCode("J");
-            sellerTaxId.setResidenceTypeCode("R");
-            sellerTaxId.setTaxIdentificationNumber("Q0000000J");
-            sellerParty.setTaxIdentification(sellerTaxId);
-
-            LegalEntity sellerLegalEntity = new LegalEntity();
-            sellerLegalEntity.setCorporateName("Nestor Soriano");
-
-            RegistrationData sellerRegistrationData = new RegistrationData();
-            sellerRegistrationData.setBook(0);
-            sellerRegistrationData.setRegisterOfCompaniesLocation("Reg. M. de Madrid");
-            sellerRegistrationData.setSheet(999999);
-            sellerRegistrationData.setFolio(99);
-            sellerRegistrationData.setSection(9);
-            sellerRegistrationData.setVolume(9999);
-            sellerLegalEntity.setRegistrationData(sellerRegistrationData);
-
-            AddressInSpain sellerAddress = new AddressInSpain();
-            sellerAddress.setAddress("Calle falsa 123");
-            sellerAddress.setPostCode("07600");
-            sellerAddress.setTown("Palma");
-            sellerAddress.setProvince("Baleares");
-            sellerAddress.setCountryCode("ESP");
-            sellerLegalEntity.setAddressInSpain(sellerAddress);
-            sellerParty.setLegalEntity(sellerLegalEntity);
-
-            parties.setSellerParty(sellerParty);
+           
+            
+            SellerParty sellerDeFormulario = new SellerParty();
+            sellerDeFormulario.rellenar();
+            parties.setSellerParty(sellerDeFormulario);
 
             // BuyerParty
             BuyerParty buyerParty = new BuyerParty();
