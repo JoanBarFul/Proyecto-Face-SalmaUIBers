@@ -11,10 +11,10 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 
 @XmlType(propOrder = {
-    "centreCode",             // Asegúrate de que este es correcto según el XSD
+    "centreCode",             //
     "roleTypeCode",
     "addressInSpain",
-    "centreDescription"       // Este debe estar también como se define en el XSD
+    "centreDescription"       // 
 })
 
 public class AdministrativeCentre {

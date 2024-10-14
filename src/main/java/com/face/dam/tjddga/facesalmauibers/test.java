@@ -8,6 +8,8 @@ import java.io.File;
 import java.util.ArrayList;
 
 import com.face.dam.tjddga.JAXB.MARSHAL.*;
+import com.face.dam.tjddga.JAXB.MARSHAL.FileHeader;
+import java.util.HashMap;
 
 public class test {
 
@@ -15,12 +17,70 @@ public class test {
         try {
             // Crear la factura
             Facturae facturae = new Facturae();
+            
+            
+            // HashMap
+            
+            HashMap<String,ArrayList<Object>> facturaeMAP = new HashMap<>();
+            
+            // FileHeader
+            String schemaVersion = "3.2.2";
+            String modality = "I";
+            String invoiceIssuerType = "EM";
+            
+            
+            ArrayList<Object> datosFileHeader = new ArrayList<>();
+            datosFileHeader.add(schemaVersion);
+            datosFileHeader.add(modality);
+            datosFileHeader.add(invoiceIssuerType);
+            
+            
+            facturaeMAP.put("FileHeader", datosFileHeader);
+            
+            
+            // Batch
+            
+            String batchIdentifier = "A80907397SMP008166239";
+            int invoicesCount = 1;
+            String invoiceCurrencyCode = "EUR";
+            TotalAmount totalInvoicesAmount = new TotalAmount();
+            totalInvoicesAmount.setTotalAmount(2420.00);
+            TotalAmount totalOutstandingAmount = new TotalAmount();
+            totalOutstandingAmount.setTotalAmount(2420.00);
+            TotalAmount totalExecutableAmount = new TotalAmount();
+            totalExecutableAmount.setTotalAmount(2420.00);
+            
+            
+            
+            ArrayList<Object> datosBatch = new ArrayList<>();
+            datosBatch.add(batchIdentifier);
+            datosBatch.add(invoicesCount);
+            datosBatch.add(invoiceCurrencyCode);
+            datosBatch.add(totalInvoicesAmount);
+            datosBatch.add(totalOutstandingAmount);
+            datosBatch.add(totalExecutableAmount);
+            facturaeMAP.put("Batch", datosBatch);
+            
+            // Objetos FH y Batch
+            
+            FileHeader fileHeader = new FileHeader();
+            Batch batch = new Batch();
+            
 
+            fileHeader.rellenarFileHeader(facturaeMAP);
+
+            facturae.setFileHeader(fileHeader);
+            
+            
+            /* File Header antiguo
+            
             // Configuración del FileHeader
             FileHeader fileHeader = new FileHeader();
             fileHeader.setSchemaVersion("3.2.2");
             fileHeader.setModality("I");
             fileHeader.setInvoiceIssuerType("EM");
+
+            
 
             // Configuración del Batch
             Batch batch = new Batch();
@@ -42,10 +102,15 @@ public class test {
             batch.setInvoiceCurrencyCode("EUR");
             fileHeader.setBatch(batch);
             facturae.setFileHeader(fileHeader);
-
+            */
+           
+            
             // Configuración de las Parties
             Parties parties = new Parties();
-
+            
+            /* Seller party antigua 
+            
+            
             // SellerParty
             SellerParty sellerParty = new SellerParty();
             TaxIdentification sellerTaxId = new TaxIdentification();
@@ -76,7 +141,90 @@ public class test {
             sellerParty.setLegalEntity(sellerLegalEntity);
 
             parties.setSellerParty(sellerParty);
-
+            
+            */
+            
+            // AdressInSpain SELLER
+            
+            String address = "Calle falsa 123";
+            String PostCode = "07600";
+            String Town = "Palma";
+            String Province = "Baleares";
+            String CountryCode = "ESP";
+            
+            
+            ArrayList<Object> datosAdressInSpain = new ArrayList<>();
+            datosAdressInSpain.add(address);
+            datosAdressInSpain.add(PostCode);
+            datosAdressInSpain.add(Town);
+            datosAdressInSpain.add(Province);
+            datosAdressInSpain.add(CountryCode);
+            
+            // Aádir al map
+            
+            facturaeMAP.put("AddressInSpain", datosAdressInSpain);
+            
+            
+            // RegData SELLER
+            
+            int book = 0;
+            String registerOfCompaniesLocation = "Reg Paquillo Paco";
+            int sheet = 999999;
+            int folio = 99;
+            int section = 9;
+            int volume = 999;
+            
+            
+            
+            
+            ArrayList<Object> datosRegistrationData = new ArrayList<>();
+            datosRegistrationData.add(book);
+            datosRegistrationData.add(registerOfCompaniesLocation);
+            datosRegistrationData.add(sheet);
+            datosRegistrationData.add(folio);
+            datosRegistrationData.add(section);
+            datosRegistrationData.add(volume);
+            
+            
+            // Añadir al MAP
+            
+            facturaeMAP.put("RegistrationData", datosRegistrationData);
+            
+            // LegalEntity SELLER
+            
+            String corporateName = "Nestor Soriano";
+            
+            
+            ArrayList<Object> datosLegalEntity = new ArrayList<>();
+            datosLegalEntity.add(corporateName);
+            
+            // Añadir al MAP
+            
+            facturaeMAP.put("LegalEntity", datosLegalEntity);
+            
+            
+            // Tax Identifiaction SELLER
+            
+            String personTypeCode = "J";
+            String residenceTypeCode = "R";
+            String taxIdentificationNumber = "Q0000000J";
+            
+            ArrayList<Object> datosTaxIdentification = new ArrayList<>();
+            
+            datosTaxIdentification.add(personTypeCode);
+            datosTaxIdentification.add(residenceTypeCode);
+            datosTaxIdentification.add(taxIdentificationNumber);
+            
+            // Añadir al MAP
+            
+            facturaeMAP.put("TaxIdentification", datosTaxIdentification);
+            
+            // Inicializar objeto padre Seller
+            SellerParty sellerParty = new SellerParty();
+            sellerParty.rellenarSellerParty(facturaeMAP);
+            parties.setSellerParty(sellerParty);
+            
+            
             // BuyerParty
             BuyerParty buyerParty = new BuyerParty();
             TaxIdentification buyerTaxId = new TaxIdentification();
@@ -114,7 +262,7 @@ public class test {
             buyerParty.setLegalEntity(buyerLegalEntity);
 
             parties.setBuyerParty(buyerParty);
-            facturae.setParties(parties);
+            
 
             // Configuración de las Invoices
             Invoices invoices = new Invoices();
@@ -257,13 +405,13 @@ public class test {
             }
             invoices.getInvoice().add(invoice);
             facturae.setInvoices(invoices);
-
+            facturae.setParties(parties);
             // Marshalling
             JAXBContext context = JAXBContext.newInstance(Facturae.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            marshaller.marshal(facturae, new File("factura2.xml"));
-
+            marshaller.marshal(facturae, new File("facturaPerital.xml"));
+            
 
         } catch (JAXBException e) {
             e.printStackTrace();

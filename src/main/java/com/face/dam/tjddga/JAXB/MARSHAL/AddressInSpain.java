@@ -5,6 +5,8 @@
 package com.face.dam.tjddga.JAXB.MARSHAL;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.HashMap;
 /**
  *
  * @author alexc
@@ -63,4 +65,16 @@ public class AddressInSpain {
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
     }
+    
+    public void rellenarAdressInSpain(HashMap<String, ArrayList<Object>> map) {
+        ArrayList<Object> valores = map.get("AddressInSpain");
+        this.address = (String) valores.get(0);
+        this.postCode = (String) valores.get(1);
+        this.town = (String) valores.get(2);
+        this.province = (String) valores.get(3);
+        this.countryCode = (String) valores.get(4);
+        
+        
+    }
+    
 }

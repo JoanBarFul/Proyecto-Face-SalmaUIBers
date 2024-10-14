@@ -24,7 +24,7 @@ public class AdministrativeCentres {
 
     @XmlElement(name = "AdministrativeCentre")
     public List<AdministrativeCentre> getAdministrativeCentre() {
-        return administrativeCentre; // Asegúrate de que devuelva la lista
+        return administrativeCentre; 
     }
 
     public void setAdministrativeCentre(List<AdministrativeCentre> administrativeCentre) {
