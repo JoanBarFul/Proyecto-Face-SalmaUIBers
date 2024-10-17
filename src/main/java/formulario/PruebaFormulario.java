@@ -804,12 +804,19 @@ private void procesarFormulario() {
  
 
 
+            AddressInSpain adminCentreAddress = new AddressInSpain();
+            adminCentreAddress.setAddress("Calle caracas, 8");
+            adminCentreAddress.setPostCode("07600");
+            adminCentreAddress.setTown("Mérida");
+            adminCentreAddress.setProvince("Badajoz");
+            adminCentreAddress.setCountryCode("ESP");
+
 
 
 
             LegalEntity buyerLegalEntity = new LegalEntity();
             buyerLegalEntity.setCorporateName("CIFP FBmoll 2DAM");
-
+            buyerLegalEntity.setAddressInSpain(adminCentreAddress);
             buyerParty.setLegalEntity(buyerLegalEntity);
 
             parties.setBuyerParty(buyerParty);

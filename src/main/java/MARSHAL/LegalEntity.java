@@ -11,7 +11,7 @@ public class LegalEntity {
     private String corporateName;
     private RegistrationData registrationData;
     private AddressInSpain addressInSpain;
-    private OverseaAddress overseaAddress; // Campo opcional para la dirección en el extranjero.
+    private OverseaAddress overseaAddress; // Campo para la dirección en el extranjero.
 
     @XmlElement(name = "CorporateName")
     public String getCorporateName() {
@@ -37,16 +37,23 @@ public class LegalEntity {
     }
 
     public void setAddressInSpain(AddressInSpain addressInSpain) {
+        // Si se establece una dirección en España, se elimina la dirección en el extranjero.
+        if (addressInSpain != null) {
+            this.overseaAddress = null; // Limpia el campo de dirección en el extranjero.
+        }
         this.addressInSpain = addressInSpain;
     }
 
-    // Campo opcional para dirección en el extranjero.
-    @XmlElement(name = "OverseaAddress", nillable = true) // nillable permite que sea opcional
+    @XmlElement(name = "OverseaAddress")
     public OverseaAddress getOverseaAddress() {
         return overseaAddress;
     }
 
     public void setOverseaAddress(OverseaAddress overseaAddress) {
+        // Si se establece una dirección en el extranjero, se elimina la dirección en España.
+        if (overseaAddress != null) {
+            this.addressInSpain = null; // Limpia el campo de dirección en España.
+        }
         this.overseaAddress = overseaAddress;
     }
 }
