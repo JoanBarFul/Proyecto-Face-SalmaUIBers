@@ -11,13 +11,11 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(propOrder = {
     "taxIdentification",
     "partyIdentification",
-    "administrativeCentres",  // Debe estar definido como una lista de centros
     "legalEntityOrIndividual" // Aquí es donde agregamos la elección entre LegalEntity e Individual
 })
 public class BuyerParty {
     private TaxIdentification taxIdentification;
     private String partyIdentification;
-    private AdministrativeCentres administrativeCentres;
     private LegalEntity legalEntity;
     private Individual individual;
 
@@ -39,14 +37,6 @@ public class BuyerParty {
         this.partyIdentification = partyIdentification;
     }
 
-    @XmlElement(name = "AdministrativeCentres")
-    public AdministrativeCentres getAdministrativeCentres() {
-        return administrativeCentres;
-    }
-
-    public void setAdministrativeCentres(AdministrativeCentres administrativeCentres) {
-        this.administrativeCentres = administrativeCentres;
-    }
 
     // Usamos @XmlElements para definir que puede ser o LegalEntity o Individual
     @XmlElements({

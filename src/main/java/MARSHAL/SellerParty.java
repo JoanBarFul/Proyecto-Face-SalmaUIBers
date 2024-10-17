@@ -47,9 +47,4 @@ public class SellerParty {
         this.legalEntity = null; // Solo puede haber uno, así que anulamos el otro
     }
     
-    public void rellenar() {
-        java.awt.Frame parentFrame = null;  // Puedes pasar un JFrame si lo tienes
-        PruebaFormulario miFormulario = new PruebaFormulario(parentFrame, true, this); // Modal
-        miFormulario.setVisible(true);
-    }
 }
