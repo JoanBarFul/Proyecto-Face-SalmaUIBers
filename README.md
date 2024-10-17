@@ -1,4 +1,3 @@
-# Gustavo dame pene
 
 
 ## CREDENCIALES CUENTA
